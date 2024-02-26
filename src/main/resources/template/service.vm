@@ -1,0 +1,22 @@
+package ${servicePackage};
+
+import ${resultPackage}.Result;
+import ${modelPackage}.${upClassName}${queryDomainSuffix};
+
+${classTitle}
+public interface ${upClassName}Service {
+
+	Result add${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception;
+
+	Result update${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception;
+	
+	Result findDetail${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception;
+	
+	Result list${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception;
+
+    Result list${upClassName}Page(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception;
+	
+	Result count${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception;
+	
+	Result delete${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception;
+}

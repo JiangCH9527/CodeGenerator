@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="${mapperPackage}.${upClassName}Mapper">
+
+	<resultMap id="${lowClassName}Mapper" type="${upClassName}${domainSuffix}">
+#foreach($resultMapColumn in $resultMapColumns)
+        $resultMapColumn
+#end
+	</resultMap>
+
+
+	<sql id="_fields">
+		${fields}
+	</sql>
+
+	<sql id="_condition">
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+#foreach($whereCondition in $whereConditions)
+            $whereCondition
+#end
+		</trim>
+	</sql>
+
+	<sql id="_primaryKey_condition">
+		WHERE ${columnPrimaryKey} = #{${normalPrimaryKey}}
+	</sql>
+
+	<sql id="_order">
+        <if test="sortByParams!= null and sortByParams.size()>0" >
+            ORDER BY
+            <foreach collection="sortByParams.keys" index="index" item="sortByParamKey" separator=",">
+                ${sortByParams}
+            </foreach>
+        </if>
+	</sql>
+
+    <insert id="add" parameterType="${upClassName}${domainSuffix}" keyProperty="${normalPrimaryKey}">
+        INSERT INTO ${tableName}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+#foreach($insertColsCondition in $insertColsConditions)
+            $insertColsCondition
+#end
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+#foreach($insertValueCondition in $insertValueConditions)
+            $insertValueCondition
+#end
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="${upClassName}${domainSuffix}">
+        UPDATE ${tableName}
+        <set>
+#foreach($updateCondition in $updateConditions)
+            $updateCondition
+#end
+        </set>
+        <include refid="_primaryKey_condition"/>
+    </update>
+
+    <select id="get" resultMap="${lowClassName}Mapper" parameterType="${upClassName}${domainSuffix}">
+        SELECT
+        <include refid="_fields"/>
+        FROM ${tableName}
+        <include refid="_primaryKey_condition"/>
+    </select>
+
+    <select id="list" resultMap="${lowClassName}Mapper" parameterType="${upClassName}${domainSuffix}">
+        SELECT
+        <include refid="_fields"/>
+        FROM ${tableName}
+        <include refid="_condition"/>
+	    <include refid="_order"/>
+    </select>
+
+    <select id="listByPage" resultMap="${lowClassName}Mapper" parameterType="${upClassName}${domainSuffix}">
+        SELECT
+        <include refid="_fields"/>
+        FROM ${tableName}
+        <include refid="_condition"/>
+        <include refid="_order"/>
+        <if test="startRecord != null and pageSize != null and pageSize >0">
+            limit #{startRecord},#{pageSize}
+        </if>
+	    <if test="!(startRecord != null and pageSize != null and pageSize >0)">
+		    limit 0,15
+	    </if>
+    </select>
+
+    <select id="count" resultType="java.lang.Integer" parameterType="${upClassName}${domainSuffix}">
+        SELECT
+        COUNT(*)
+        FROM ${tableName}
+        <include refid="_condition"/>
+    </select>
+
+    <delete id="delete" parameterType="${upClassName}${domainSuffix}">
+        DELETE FROM ${tableName}
+        <include refid="_primaryKey_condition"/>
+    </delete>
+
+</mapper>

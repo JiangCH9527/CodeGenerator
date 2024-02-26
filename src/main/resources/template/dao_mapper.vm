@@ -1,0 +1,26 @@
+package ${mapperPackage};
+
+import java.util.List;
+
+import ${poPackage}.${upClassName}${domainSuffix};
+import org.springframework.stereotype.Repository;
+
+${classTitle}
+@Repository
+public interface ${upClassName}Mapper {
+
+    Integer add(${upClassName}${domainSuffix} ${lowClassName});
+
+    Integer update(${upClassName}${domainSuffix} ${lowClassName});
+
+    ${upClassName}${domainSuffix} get(Long id);
+
+    List<${upClassName}${domainSuffix}> list(${upClassName}${domainSuffix} ${lowClassName});
+
+    List<${upClassName}${domainSuffix}> listByPage(${upClassName}${domainSuffix} ${lowClassName});
+
+    Integer count(${upClassName}${domainSuffix} ${lowClassName});
+
+    Integer delete(Long id);
+
+}

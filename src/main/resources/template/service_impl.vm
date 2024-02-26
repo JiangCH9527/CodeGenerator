@@ -1,0 +1,56 @@
+package ${serviceImplPackage};
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ${resultPackage}.Result;
+import ${servicePackage}.${upClassName}Service;
+import ${modelPackage}.${upClassName}${queryDomainSuffix};
+import ${mapperPackage}.${upClassName}Mapper;
+import javax.annotation.Resource;
+import org.springframework.stereotype.Service;
+
+${classTitle}
+@Service("${lowClassName}Service")
+public class ${upClassName}ServiceImpl implements ${upClassName}Service {
+
+	private final static Logger LOG = LoggerFactory.getLogger(${upClassName}ServiceImpl.class);
+
+	@Resource
+	private ${upClassName}Mapper ${lowClassName}Mapper;
+
+	@Override
+	public Result add${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception {
+		return null;
+	}
+
+	@Override
+	public Result update${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception {
+		return null;
+	}
+	
+	@Override
+	public Result findDetail${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception{
+		return null;
+	}
+
+	@Override
+	public Result list${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception{
+		return null;
+	}
+	
+	@Override
+	public Result list${upClassName}Page(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception{
+		return null;
+	}
+	
+	@Override
+	public Result count${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception{
+		return null;
+	}
+	
+	@Override
+	public Result delete${upClassName}(${upClassName}${queryDomainSuffix} ${lowClassName}${queryDomainSuffix}) throws Exception{
+		return null;
+	}
+
+}
