@@ -13,7 +13,7 @@ public interface ${upClassName}Mapper {
 
     Integer update(${upClassName}${domainSuffix} ${lowClassName});
 
-    ${upClassName}${domainSuffix} get(Long id);
+    ${upClassName}${domainSuffix} get(Long Id);
 
     List<${upClassName}${domainSuffix}> list(${upClassName}${domainSuffix} ${lowClassName});
 
@@ -21,6 +21,6 @@ public interface ${upClassName}Mapper {
 
     Integer count(${upClassName}${domainSuffix} ${lowClassName});
 
-    Integer delete(Long id);
+    Integer delete(Long Id);
 
 }
