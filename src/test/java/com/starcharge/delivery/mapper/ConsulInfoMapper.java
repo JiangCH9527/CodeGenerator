@@ -3,17 +3,17 @@ package com.starcharge.delivery.mapper;
 import java.util.List;
 
 import com.starcharge.delivery.domain.ConsulInfoDO;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 /** 
  * ConsulInfo
  * 
  * AutoCreated on 2024-02-27
  */
-@Repository
+@Mapper
 public interface ConsulInfoMapper {
 
-    Integer add(ConsulInfoDO consulInfo);
+    Integer insert(ConsulInfoDO consulInfo);
 
     Integer update(ConsulInfoDO consulInfo);
 

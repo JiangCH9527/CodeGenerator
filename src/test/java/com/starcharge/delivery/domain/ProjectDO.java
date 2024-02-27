@@ -10,7 +10,7 @@ import java.io.Serializable;
  * AutoCreated on 2024-02-27
  */
 public class ProjectDO implements Serializable {
-    private static final long serialVersionUID = -6654986771028124920L;
+    private static final long serialVersionUID = -8895350693127279361L;
 
     private Long id;
 

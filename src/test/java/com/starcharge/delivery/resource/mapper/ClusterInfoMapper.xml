@@ -3,7 +3,7 @@
 
 <mapper namespace="com.starcharge.delivery.mapper.ClusterInfoMapper">
 
-	<resultMap id="clusterInfoMapper" type="ClusterInfoDO">
+	<resultMap id="clusterInfoMapper" type="com.starcharge.delivery.domain.ClusterInfoDO">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="frontendName" column="frontend_name"/>
@@ -109,7 +109,7 @@
         </if>
 	</sql>
 
-    <insert id="add" parameterType="ClusterInfoDO" keyProperty="id">
+    <insert id="insert" parameterType="ClusterInfoDO" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
         INSERT INTO cluster_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id!=null">
@@ -301,7 +301,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="clusterInfoMapper" parameterType="ClusterInfoDO">
+    <select id="get" resultMap="clusterInfoMapper" parameterType="long">
         SELECT
         <include refid="_fields"/>
         FROM cluster_info
@@ -337,7 +337,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="ClusterInfoDO">
+    <delete id="delete" parameterType="long">
         DELETE FROM cluster_info
         <include refid="_primaryKey_condition"/>
     </delete>

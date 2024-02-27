@@ -3,7 +3,7 @@
 
 <mapper namespace="com.starcharge.delivery.mapper.ApplicationMapper">
 
-	<resultMap id="applicationMapper" type="ApplicationDO">
+	<resultMap id="applicationMapper" type="com.starcharge.delivery.domain.ApplicationDO">
         <result property="id" column="id"/>
         <result property="projectId" column="project_id"/>
         <result property="name" column="name"/>
@@ -95,7 +95,7 @@
         </if>
 	</sql>
 
-    <insert id="add" parameterType="ApplicationDO" keyProperty="id">
+    <insert id="insert" parameterType="ApplicationDO" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
         INSERT INTO application
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id!=null">
@@ -242,7 +242,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="applicationMapper" parameterType="ApplicationDO">
+    <select id="get" resultMap="applicationMapper" parameterType="long">
         SELECT
         <include refid="_fields"/>
         FROM application
@@ -278,7 +278,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="ApplicationDO">
+    <delete id="delete" parameterType="long">
         DELETE FROM application
         <include refid="_primaryKey_condition"/>
     </delete>

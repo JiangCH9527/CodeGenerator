@@ -3,7 +3,7 @@
 
 <mapper namespace="com.starcharge.delivery.mapper.ResourceMapper">
 
-	<resultMap id="resourceMapper" type="ResourceDO">
+	<resultMap id="resourceMapper" type="com.starcharge.delivery.domain.ResourceDO">
         <result property="id" column="id"/>
         <result property="projectId" column="project_id"/>
         <result property="applicationId" column="application_id"/>
@@ -155,7 +155,7 @@
         </if>
 	</sql>
 
-    <insert id="add" parameterType="ResourceDO" keyProperty="id">
+    <insert id="insert" parameterType="ResourceDO" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
         INSERT INTO resource
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id!=null">
@@ -437,7 +437,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="resourceMapper" parameterType="ResourceDO">
+    <select id="get" resultMap="resourceMapper" parameterType="long">
         SELECT
         <include refid="_fields"/>
         FROM resource
@@ -473,7 +473,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="ResourceDO">
+    <delete id="delete" parameterType="long">
         DELETE FROM resource
         <include refid="_primaryKey_condition"/>
     </delete>

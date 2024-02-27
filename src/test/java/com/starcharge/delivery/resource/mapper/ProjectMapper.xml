@@ -3,7 +3,7 @@
 
 <mapper namespace="com.starcharge.delivery.mapper.ProjectMapper">
 
-	<resultMap id="projectMapper" type="ProjectDO">
+	<resultMap id="projectMapper" type="com.starcharge.delivery.domain.ProjectDO">
         <result property="id" column="id"/>
         <result property="projectCode" column="project_code"/>
         <result property="repositoryId" column="repository_id"/>
@@ -107,7 +107,7 @@
         </if>
 	</sql>
 
-    <insert id="add" parameterType="ProjectDO" keyProperty="id">
+    <insert id="insert" parameterType="ProjectDO" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
         INSERT INTO project
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id!=null">
@@ -281,7 +281,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="projectMapper" parameterType="ProjectDO">
+    <select id="get" resultMap="projectMapper" parameterType="long">
         SELECT
         <include refid="_fields"/>
         FROM project
@@ -317,7 +317,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="ProjectDO">
+    <delete id="delete" parameterType="long">
         DELETE FROM project
         <include refid="_primaryKey_condition"/>
     </delete>

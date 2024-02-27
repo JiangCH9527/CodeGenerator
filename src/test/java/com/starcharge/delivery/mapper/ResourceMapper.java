@@ -3,17 +3,17 @@ package com.starcharge.delivery.mapper;
 import java.util.List;
 
 import com.starcharge.delivery.domain.ResourceDO;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 /** 
  * Resource
  * 
  * AutoCreated on 2024-02-27
  */
-@Repository
+@Mapper
 public interface ResourceMapper {
 
-    Integer add(ResourceDO resource);
+    Integer insert(ResourceDO resource);
 
     Integer update(ResourceDO resource);
 

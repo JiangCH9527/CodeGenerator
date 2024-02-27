@@ -3,7 +3,7 @@
 
 <mapper namespace="com.starcharge.delivery.mapper.ConsulInfoMapper">
 
-	<resultMap id="consulInfoMapper" type="ConsulInfoDO">
+	<resultMap id="consulInfoMapper" type="com.starcharge.delivery.domain.ConsulInfoDO">
         <result property="id" column="id"/>
         <result property="consulServerIp" column="consul_server_ip"/>
         <result property="dataDir" column="data_dir"/>
@@ -61,7 +61,7 @@
         </if>
 	</sql>
 
-    <insert id="add" parameterType="ConsulInfoDO" keyProperty="id">
+    <insert id="insert" parameterType="ConsulInfoDO" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
         INSERT INTO consul_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id!=null">
@@ -145,7 +145,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="consulInfoMapper" parameterType="ConsulInfoDO">
+    <select id="get" resultMap="consulInfoMapper" parameterType="long">
         SELECT
         <include refid="_fields"/>
         FROM consul_info
@@ -181,7 +181,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="ConsulInfoDO">
+    <delete id="delete" parameterType="long">
         DELETE FROM consul_info
         <include refid="_primaryKey_condition"/>
     </delete>

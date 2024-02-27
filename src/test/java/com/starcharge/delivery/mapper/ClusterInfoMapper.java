@@ -3,17 +3,17 @@ package com.starcharge.delivery.mapper;
 import java.util.List;
 
 import com.starcharge.delivery.domain.ClusterInfoDO;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 /** 
  * ClusterInfo
  * 
  * AutoCreated on 2024-02-27
  */
-@Repository
+@Mapper
 public interface ClusterInfoMapper {
 
-    Integer add(ClusterInfoDO clusterInfo);
+    Integer insert(ClusterInfoDO clusterInfo);
 
     Integer update(ClusterInfoDO clusterInfo);
 

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * AutoCreated on 2024-02-27
  */
 public class ClusterInfoDO implements Serializable {
-    private static final long serialVersionUID = -4707899991371162199L;
+    private static final long serialVersionUID = -4895812335162702503L;
 
     private Long id;
 

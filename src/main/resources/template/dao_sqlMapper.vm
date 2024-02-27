@@ -3,7 +3,7 @@
 
 <mapper namespace="${mapperPackage}.${upClassName}Mapper">
 
-	<resultMap id="${lowClassName}Mapper" type="${upClassName}${domainSuffix}">
+	<resultMap id="${lowClassName}Mapper" type="${poPackage}.${upClassName}${domainSuffix}">
 #foreach($resultMapColumn in $resultMapColumns)
         $resultMapColumn
 #end
@@ -35,7 +35,7 @@
         </if>
 	</sql>
 
-    <insert id="add" parameterType="${upClassName}${domainSuffix}" keyProperty="${normalPrimaryKey}">
+    <insert id="insert" parameterType="${upClassName}${domainSuffix}" keyProperty="${normalPrimaryKey}" keyColumn="${normalPrimaryKey}" useGeneratedKeys="true">
         INSERT INTO ${tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
 #foreach($insertColsCondition in $insertColsConditions)
@@ -59,7 +59,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="${lowClassName}Mapper" parameterType="${upClassName}${domainSuffix}">
+    <select id="get" resultMap="${lowClassName}Mapper" parameterType="long">
         SELECT
         <include refid="_fields"/>
         FROM ${tableName}
@@ -95,7 +95,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="${upClassName}${domainSuffix}">
+    <delete id="delete" parameterType="long">
         DELETE FROM ${tableName}
         <include refid="_primaryKey_condition"/>
     </delete>

@@ -3,17 +3,17 @@ package com.starcharge.delivery.mapper;
 import java.util.List;
 
 import com.starcharge.delivery.domain.ProjectDO;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 /** 
  * Project
  * 
  * AutoCreated on 2024-02-27
  */
-@Repository
+@Mapper
 public interface ProjectMapper {
 
-    Integer add(ProjectDO project);
+    Integer insert(ProjectDO project);
 
     Integer update(ProjectDO project);
 

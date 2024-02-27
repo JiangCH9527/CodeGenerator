@@ -3,17 +3,17 @@ package com.starcharge.delivery.mapper;
 import java.util.List;
 
 import com.starcharge.delivery.domain.ApplicationDO;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 /** 
  * Application
  * 
  * AutoCreated on 2024-02-27
  */
-@Repository
+@Mapper
 public interface ApplicationMapper {
 
-    Integer add(ApplicationDO application);
+    Integer insert(ApplicationDO application);
 
     Integer update(ApplicationDO application);
 

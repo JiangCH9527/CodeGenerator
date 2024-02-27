@@ -8,7 +8,7 @@ import java.io.Serializable;
  * AutoCreated on 2024-02-27
  */
 public class ConsulInfoDO implements Serializable {
-    private static final long serialVersionUID = -6097878656977815834L;
+    private static final long serialVersionUID = -6189067421604445041L;
 
     private Long id;
 
