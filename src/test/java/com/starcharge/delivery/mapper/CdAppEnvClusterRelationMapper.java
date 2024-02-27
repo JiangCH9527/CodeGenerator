@@ -17,7 +17,7 @@ public interface CdAppEnvClusterRelationMapper {
 
     Integer update(CdAppEnvClusterRelationDO cdAppEnvClusterRelation);
 
-    CdAppEnvClusterRelationDO get(Long Id);
+    CdAppEnvClusterRelationDO get(Long id);
 
     List<CdAppEnvClusterRelationDO> list(CdAppEnvClusterRelationDO cdAppEnvClusterRelation);
 
@@ -25,6 +25,6 @@ public interface CdAppEnvClusterRelationMapper {
 
     Integer count(CdAppEnvClusterRelationDO cdAppEnvClusterRelation);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

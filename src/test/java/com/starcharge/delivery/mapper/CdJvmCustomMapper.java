@@ -17,7 +17,7 @@ public interface CdJvmCustomMapper {
 
     Integer update(CdJvmCustomDO cdJvmCustom);
 
-    CdJvmCustomDO get(Long Id);
+    CdJvmCustomDO get(Long id);
 
     List<CdJvmCustomDO> list(CdJvmCustomDO cdJvmCustom);
 
@@ -25,6 +25,6 @@ public interface CdJvmCustomMapper {
 
     Integer count(CdJvmCustomDO cdJvmCustom);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

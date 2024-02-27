@@ -17,7 +17,7 @@ public interface ApplicationMapper {
 
     Integer update(ApplicationDO application);
 
-    ApplicationDO get(Long Id);
+    ApplicationDO get(Long id);
 
     List<ApplicationDO> list(ApplicationDO application);
 
@@ -25,6 +25,6 @@ public interface ApplicationMapper {
 
     Integer count(ApplicationDO application);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

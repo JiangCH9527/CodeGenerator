@@ -17,7 +17,7 @@ public interface CdBusinessTopologyMapper {
 
     Integer update(CdBusinessTopologyDO cdBusinessTopology);
 
-    CdBusinessTopologyDO get(Long Id);
+    CdBusinessTopologyDO get(Long id);
 
     List<CdBusinessTopologyDO> list(CdBusinessTopologyDO cdBusinessTopology);
 
@@ -25,6 +25,6 @@ public interface CdBusinessTopologyMapper {
 
     Integer count(CdBusinessTopologyDO cdBusinessTopology);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

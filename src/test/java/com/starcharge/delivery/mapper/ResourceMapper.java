@@ -17,7 +17,7 @@ public interface ResourceMapper {
 
     Integer update(ResourceDO resource);
 
-    ResourceDO get(Long Id);
+    ResourceDO get(Long id);
 
     List<ResourceDO> list(ResourceDO resource);
 
@@ -25,6 +25,6 @@ public interface ResourceMapper {
 
     Integer count(ResourceDO resource);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

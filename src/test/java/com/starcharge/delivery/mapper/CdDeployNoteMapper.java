@@ -17,7 +17,7 @@ public interface CdDeployNoteMapper {
 
     Integer update(CdDeployNoteDO cdDeployNote);
 
-    CdDeployNoteDO get(Long Id);
+    CdDeployNoteDO get(Long id);
 
     List<CdDeployNoteDO> list(CdDeployNoteDO cdDeployNote);
 
@@ -25,6 +25,6 @@ public interface CdDeployNoteMapper {
 
     Integer count(CdDeployNoteDO cdDeployNote);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

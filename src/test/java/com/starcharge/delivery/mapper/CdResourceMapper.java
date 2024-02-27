@@ -17,7 +17,7 @@ public interface CdResourceMapper {
 
     Integer update(CdResourceDO cdResource);
 
-    CdResourceDO get(Long Id);
+    CdResourceDO get(Long id);
 
     List<CdResourceDO> list(CdResourceDO cdResource);
 
@@ -25,6 +25,6 @@ public interface CdResourceMapper {
 
     Integer count(CdResourceDO cdResource);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

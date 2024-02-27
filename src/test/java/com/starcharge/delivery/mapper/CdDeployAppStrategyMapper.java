@@ -17,7 +17,7 @@ public interface CdDeployAppStrategyMapper {
 
     Integer update(CdDeployAppStrategyDO cdDeployAppStrategy);
 
-    CdDeployAppStrategyDO get(Long Id);
+    CdDeployAppStrategyDO get(Long id);
 
     List<CdDeployAppStrategyDO> list(CdDeployAppStrategyDO cdDeployAppStrategy);
 
@@ -25,6 +25,6 @@ public interface CdDeployAppStrategyMapper {
 
     Integer count(CdDeployAppStrategyDO cdDeployAppStrategy);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

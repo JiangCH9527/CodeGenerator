@@ -17,7 +17,7 @@ public interface CdAppCatMapper {
 
     Integer update(CdAppCatDO cdAppCat);
 
-    CdAppCatDO get(Long Id);
+    CdAppCatDO get(Long id);
 
     List<CdAppCatDO> list(CdAppCatDO cdAppCat);
 
@@ -25,6 +25,6 @@ public interface CdAppCatMapper {
 
     Integer count(CdAppCatDO cdAppCat);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

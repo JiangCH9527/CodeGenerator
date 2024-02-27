@@ -17,7 +17,7 @@ public interface CdDeployCallParamSnapshotMapper {
 
     Integer update(CdDeployCallParamSnapshotDO cdDeployCallParamSnapshot);
 
-    CdDeployCallParamSnapshotDO get(Long Id);
+    CdDeployCallParamSnapshotDO get(Long id);
 
     List<CdDeployCallParamSnapshotDO> list(CdDeployCallParamSnapshotDO cdDeployCallParamSnapshot);
 
@@ -25,6 +25,6 @@ public interface CdDeployCallParamSnapshotMapper {
 
     Integer count(CdDeployCallParamSnapshotDO cdDeployCallParamSnapshot);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

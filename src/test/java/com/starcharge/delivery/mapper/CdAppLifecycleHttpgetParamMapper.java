@@ -17,7 +17,7 @@ public interface CdAppLifecycleHttpgetParamMapper {
 
     Integer update(CdAppLifecycleHttpgetParamDO cdAppLifecycleHttpgetParam);
 
-    CdAppLifecycleHttpgetParamDO get(Long Id);
+    CdAppLifecycleHttpgetParamDO get(Long id);
 
     List<CdAppLifecycleHttpgetParamDO> list(CdAppLifecycleHttpgetParamDO cdAppLifecycleHttpgetParam);
 
@@ -25,6 +25,6 @@ public interface CdAppLifecycleHttpgetParamMapper {
 
     Integer count(CdAppLifecycleHttpgetParamDO cdAppLifecycleHttpgetParam);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

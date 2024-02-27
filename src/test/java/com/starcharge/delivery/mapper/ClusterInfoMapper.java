@@ -17,7 +17,7 @@ public interface ClusterInfoMapper {
 
     Integer update(ClusterInfoDO clusterInfo);
 
-    ClusterInfoDO get(Long Id);
+    ClusterInfoDO get(Long id);
 
     List<ClusterInfoDO> list(ClusterInfoDO clusterInfo);
 
@@ -25,6 +25,6 @@ public interface ClusterInfoMapper {
 
     Integer count(ClusterInfoDO clusterInfo);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

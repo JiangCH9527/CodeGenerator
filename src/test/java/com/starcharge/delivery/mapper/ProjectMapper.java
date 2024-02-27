@@ -17,7 +17,7 @@ public interface ProjectMapper {
 
     Integer update(ProjectDO project);
 
-    ProjectDO get(Long Id);
+    ProjectDO get(Long id);
 
     List<ProjectDO> list(ProjectDO project);
 
@@ -25,6 +25,6 @@ public interface ProjectMapper {
 
     Integer count(ProjectDO project);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

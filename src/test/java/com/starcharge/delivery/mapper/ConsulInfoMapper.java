@@ -17,7 +17,7 @@ public interface ConsulInfoMapper {
 
     Integer update(ConsulInfoDO consulInfo);
 
-    ConsulInfoDO get(Long Id);
+    ConsulInfoDO get(Long id);
 
     List<ConsulInfoDO> list(ConsulInfoDO consulInfo);
 
@@ -25,6 +25,6 @@ public interface ConsulInfoMapper {
 
     Integer count(ConsulInfoDO consulInfo);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

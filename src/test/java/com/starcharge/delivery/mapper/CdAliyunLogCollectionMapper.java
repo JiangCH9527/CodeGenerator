@@ -17,7 +17,7 @@ public interface CdAliyunLogCollectionMapper {
 
     Integer update(CdAliyunLogCollectionDO cdAliyunLogCollection);
 
-    CdAliyunLogCollectionDO get(Long Id);
+    CdAliyunLogCollectionDO get(Long id);
 
     List<CdAliyunLogCollectionDO> list(CdAliyunLogCollectionDO cdAliyunLogCollection);
 
@@ -25,6 +25,6 @@ public interface CdAliyunLogCollectionMapper {
 
     Integer count(CdAliyunLogCollectionDO cdAliyunLogCollection);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }

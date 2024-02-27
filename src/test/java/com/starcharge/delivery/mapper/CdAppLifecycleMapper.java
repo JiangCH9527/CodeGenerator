@@ -17,7 +17,7 @@ public interface CdAppLifecycleMapper {
 
     Integer update(CdAppLifecycleDO cdAppLifecycle);
 
-    CdAppLifecycleDO get(Long Id);
+    CdAppLifecycleDO get(Long id);
 
     List<CdAppLifecycleDO> list(CdAppLifecycleDO cdAppLifecycle);
 
@@ -25,6 +25,6 @@ public interface CdAppLifecycleMapper {
 
     Integer count(CdAppLifecycleDO cdAppLifecycle);
 
-    Integer delete(Long Id);
+    Integer delete(Long id);
 
 }
