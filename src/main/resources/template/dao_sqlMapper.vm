@@ -3,7 +3,7 @@
 
 <mapper namespace="${mapperPackage}.${upClassName}Mapper">
 
-	<resultMap id="${lowClassName}Mapper" type="${poPackage}.${upClassName}${domainSuffix}">
+	<resultMap id="${lowClassName}Mapper" type="${upClassName}${domainSuffix}">
 #foreach($resultMapColumn in $resultMapColumns)
         $resultMapColumn
 #end
