@@ -301,7 +301,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="clusterInfoMapper" parameterType="long">
+    <select id="get" resultMap="clusterInfoMapper" parameterType="java.lang.Long">
         SELECT
         <include refid="_fields"/>
         FROM cluster_info
@@ -337,7 +337,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="long">
+    <delete id="delete" parameterType="java.lang.Long">
         DELETE FROM cluster_info
         <include refid="_primaryKey_condition"/>
     </delete>

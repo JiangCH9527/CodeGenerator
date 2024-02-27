@@ -242,7 +242,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="applicationMapper" parameterType="long">
+    <select id="get" resultMap="applicationMapper" parameterType="java.lang.Long">
         SELECT
         <include refid="_fields"/>
         FROM application
@@ -278,7 +278,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="long">
+    <delete id="delete" parameterType="java.lang.Long">
         DELETE FROM application
         <include refid="_primaryKey_condition"/>
     </delete>

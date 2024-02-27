@@ -281,7 +281,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="projectMapper" parameterType="long">
+    <select id="get" resultMap="projectMapper" parameterType="java.lang.Long">
         SELECT
         <include refid="_fields"/>
         FROM project
@@ -317,7 +317,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="long">
+    <delete id="delete" parameterType="java.lang.Long">
         DELETE FROM project
         <include refid="_primaryKey_condition"/>
     </delete>

@@ -145,7 +145,7 @@
         <include refid="_primaryKey_condition"/>
     </update>
 
-    <select id="get" resultMap="consulInfoMapper" parameterType="long">
+    <select id="get" resultMap="consulInfoMapper" parameterType="java.lang.Long">
         SELECT
         <include refid="_fields"/>
         FROM consul_info
@@ -181,7 +181,7 @@
         <include refid="_condition"/>
     </select>
 
-    <delete id="delete" parameterType="long">
+    <delete id="delete" parameterType="java.lang.Long">
         DELETE FROM consul_info
         <include refid="_primaryKey_condition"/>
     </delete>
