@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.starcharge.delivery.mapper.CdResourceMapper">
+
+	<resultMap id="cdResourceMapper" type="CdResourceDO">
+        <result property="id" column="id"/>
+        <result property="cdAppEnvClusterId" column="cd_app_env_cluster_id"/>
+        <result property="replicas" column="replicas"/>
+        <result property="cpu" column="cpu"/>
+        <result property="memory" column="memory"/>
+        <result property="port" column="port"/>
+        <result property="otherPort" column="other_port"/>
+        <result property="createUser" column="create_user"/>
+        <result property="updateUser" column="update_user"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="version" column="version"/>
+        <result property="isDeleted" column="is_deleted"/>
+	</resultMap>
+
+
+	<sql id="_fields">
+		id,cd_app_env_cluster_id,replicas,`cpu`,`memory`,`port`,other_port,create_user,update_user,create_time,update_time,version,is_deleted
+	</sql>
+
+	<sql id="_condition">
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="id!=null">
+				AND id = #{id}
+			</if>
+            <if test="cdAppEnvClusterId!=null">
+				AND cd_app_env_cluster_id = #{cdAppEnvClusterId}
+			</if>
+            <if test="replicas!=null">
+				AND replicas = #{replicas}
+			</if>
+            <if test="cpu!=null and ''!=cpu">
+				AND `cpu` = #{cpu}
+			</if>
+            <if test="memory!=null and ''!=memory">
+				AND `memory` = #{memory}
+			</if>
+            <if test="port!=null and ''!=port">
+				AND `port` = #{port}
+			</if>
+            <if test="otherPort!=null and ''!=otherPort">
+				AND other_port = #{otherPort}
+			</if>
+            <if test="createUser!=null and ''!=createUser">
+				AND create_user = #{createUser}
+			</if>
+            <if test="updateUser!=null and ''!=updateUser">
+				AND update_user = #{updateUser}
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				<![CDATA[AND create_time >= #{dynamicFields_startTime}]]>
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				<![CDATA[AND create_time < #{dynamicFields_endTime}]]>
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				<![CDATA[AND update_time >= #{dynamicFields_startTime}]]>
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				<![CDATA[AND update_time < #{dynamicFields_endTime}]]>
+			</if>
+            <if test="version!=null">
+				AND version = #{version}
+			</if>
+            <if test="isDeleted!=null">
+				AND is_deleted = #{isDeleted}
+			</if>
+		</trim>
+	</sql>
+
+	<sql id="_primaryKey_condition">
+		WHERE id = #{id}
+	</sql>
+
+	<sql id="_order">
+        <if test="sortByParams!= null and sortByParams.size()>0" >
+            ORDER BY
+            <foreach collection="sortByParams.keys" index="index" item="sortByParamKey" separator=",">
+                <![CDATA[${sortByParamKey} ${sortByParams[sortByParamKey]}]]>
+            </foreach>
+        </if>
+	</sql>
+
+    <insert id="add" parameterType="CdResourceDO" keyProperty="id">
+        INSERT INTO cd_resource
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+				id,
+			</if>
+            <if test="cdAppEnvClusterId!=null">
+				cd_app_env_cluster_id,
+			</if>
+            <if test="replicas!=null">
+				replicas,
+			</if>
+            <if test="cpu!=null and ''!=cpu">
+				`cpu`,
+			</if>
+            <if test="memory!=null and ''!=memory">
+				`memory`,
+			</if>
+            <if test="port!=null and ''!=port">
+				`port`,
+			</if>
+            <if test="otherPort!=null and ''!=otherPort">
+				other_port,
+			</if>
+            <if test="createUser!=null and ''!=createUser">
+				create_user,
+			</if>
+            <if test="updateUser!=null and ''!=updateUser">
+				update_user,
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				create_time,
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				update_time,
+			</if>
+            <if test="version!=null">
+				version,
+			</if>
+            <if test="isDeleted!=null">
+				is_deleted,
+			</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+				#{id},
+			</if>
+            <if test="cdAppEnvClusterId!=null">
+				#{cdAppEnvClusterId},
+			</if>
+            <if test="replicas!=null">
+				#{replicas},
+			</if>
+            <if test="cpu!=null and ''!=cpu">
+				#{cpu},
+			</if>
+            <if test="memory!=null and ''!=memory">
+				#{memory},
+			</if>
+            <if test="port!=null and ''!=port">
+				#{port},
+			</if>
+            <if test="otherPort!=null and ''!=otherPort">
+				#{otherPort},
+			</if>
+            <if test="createUser!=null and ''!=createUser">
+				#{createUser},
+			</if>
+            <if test="updateUser!=null and ''!=updateUser">
+				#{updateUser},
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				#{createTime},
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				#{updateTime},
+			</if>
+            <if test="version!=null">
+				#{version},
+			</if>
+            <if test="isDeleted!=null">
+				#{isDeleted},
+			</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="CdResourceDO">
+        UPDATE cd_resource
+        <set>
+            <if test="cdAppEnvClusterId!=null">
+				cd_app_env_cluster_id = #{cdAppEnvClusterId},
+			</if>
+            <if test="replicas!=null">
+				replicas = #{replicas},
+			</if>
+            <if test="cpu!=null and ''!=cpu">
+				`cpu` = #{cpu},
+			</if>
+            <if test="memory!=null and ''!=memory">
+				`memory` = #{memory},
+			</if>
+            <if test="port!=null and ''!=port">
+				`port` = #{port},
+			</if>
+            <if test="otherPort!=null and ''!=otherPort">
+				other_port = #{otherPort},
+			</if>
+            <if test="createUser!=null and ''!=createUser">
+				create_user = #{createUser},
+			</if>
+            <if test="updateUser!=null and ''!=updateUser">
+				update_user = #{updateUser},
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				create_time = #{createTime},
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				update_time = #{updateTime},
+			</if>
+            <if test="version!=null">
+				version = #{version},
+			</if>
+            <if test="isDeleted!=null">
+				is_deleted = #{isDeleted},
+			</if>
+        </set>
+        <include refid="_primaryKey_condition"/>
+    </update>
+
+    <select id="get" resultMap="cdResourceMapper" parameterType="CdResourceDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM cd_resource
+        <include refid="_primaryKey_condition"/>
+    </select>
+
+    <select id="list" resultMap="cdResourceMapper" parameterType="CdResourceDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM cd_resource
+        <include refid="_condition"/>
+	    <include refid="_order"/>
+    </select>
+
+    <select id="listByPage" resultMap="cdResourceMapper" parameterType="CdResourceDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM cd_resource
+        <include refid="_condition"/>
+        <include refid="_order"/>
+        <if test="startRecord != null and pageSize != null and pageSize >0">
+            limit #{startRecord},#{pageSize}
+        </if>
+	    <if test="!(startRecord != null and pageSize != null and pageSize >0)">
+		    limit 0,15
+	    </if>
+    </select>
+
+    <select id="count" resultType="java.lang.Integer" parameterType="CdResourceDO">
+        SELECT
+        COUNT(*)
+        FROM cd_resource
+        <include refid="_condition"/>
+    </select>
+
+    <delete id="delete" parameterType="CdResourceDO">
+        DELETE FROM cd_resource
+        <include refid="_primaryKey_condition"/>
+    </delete>
+
+</mapper>

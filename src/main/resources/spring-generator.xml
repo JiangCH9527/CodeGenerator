@@ -35,7 +35,7 @@
                 </bean>
                 <bean class="com.weidong.mybatis.config.PackageConfigType">
                     <property name="aliasType" value="mapperPackage"/><!--不可变更-->
-                    <property name="targetDir" value="/dao/mapper"/>
+                    <property name="targetDir" value="/mapper"/>
                     <property name="fileNameSuffix" value="Mapper.java"/>
                     <property name="template" value="dao_mapper.vm"/><!--不可变更-->
                 </bean>

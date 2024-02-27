@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.starcharge.delivery.mapper.CdDeployAppStrategyMapper">
+
+	<resultMap id="cdDeployAppStrategyMapper" type="CdDeployAppStrategyDO">
+        <result property="id" column="id"/>
+        <result property="serial" column="serial"/>
+        <result property="currentBatchCount" column="current_batch_count"/>
+        <result property="status" column="status"/>
+        <result property="cdDeployAppRecordId" column="cd_deploy_app_record_id"/>
+        <result property="createUser" column="create_user"/>
+        <result property="updateUser" column="update_user"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="version" column="version"/>
+        <result property="isDeleted" column="is_deleted"/>
+	</resultMap>
+
+
+	<sql id="_fields">
+		id,`serial`,current_batch_count,`status`,cd_deploy_app_record_id,create_user,update_user,create_time,update_time,version,is_deleted
+	</sql>
+
+	<sql id="_condition">
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="id!=null">
+				AND id = #{id}
+			</if>
+            <if test="serial!=null">
+				AND `serial` = #{serial}
+			</if>
+            <if test="currentBatchCount!=null">
+				AND current_batch_count = #{currentBatchCount}
+			</if>
+            <if test="status!=null">
+				AND `status` = #{status}
+			</if>
+            <if test="cdDeployAppRecordId!=null">
+				AND cd_deploy_app_record_id = #{cdDeployAppRecordId}
+			</if>
+            <if test="createUser!=null and ''!=createUser">
+				AND create_user = #{createUser}
+			</if>
+            <if test="updateUser!=null and ''!=updateUser">
+				AND update_user = #{updateUser}
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				<![CDATA[AND create_time >= #{dynamicFields_startTime}]]>
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				<![CDATA[AND create_time < #{dynamicFields_endTime}]]>
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				<![CDATA[AND update_time >= #{dynamicFields_startTime}]]>
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				<![CDATA[AND update_time < #{dynamicFields_endTime}]]>
+			</if>
+            <if test="version!=null">
+				AND version = #{version}
+			</if>
+            <if test="isDeleted!=null">
+				AND is_deleted = #{isDeleted}
+			</if>
+		</trim>
+	</sql>
+
+	<sql id="_primaryKey_condition">
+		WHERE id = #{id}
+	</sql>
+
+	<sql id="_order">
+        <if test="sortByParams!= null and sortByParams.size()>0" >
+            ORDER BY
+            <foreach collection="sortByParams.keys" index="index" item="sortByParamKey" separator=",">
+                <![CDATA[${sortByParamKey} ${sortByParams[sortByParamKey]}]]>
+            </foreach>
+        </if>
+	</sql>
+
+    <insert id="add" parameterType="CdDeployAppStrategyDO" keyProperty="id">
+        INSERT INTO cd_deploy_app_strategy
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+				id,
+			</if>
+            <if test="serial!=null">
+				`serial`,
+			</if>
+            <if test="currentBatchCount!=null">
+				current_batch_count,
+			</if>
+            <if test="status!=null">
+				`status`,
+			</if>
+            <if test="cdDeployAppRecordId!=null">
+				cd_deploy_app_record_id,
+			</if>
+            <if test="createUser!=null and ''!=createUser">
+				create_user,
+			</if>
+            <if test="updateUser!=null and ''!=updateUser">
+				update_user,
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				create_time,
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				update_time,
+			</if>
+            <if test="version!=null">
+				version,
+			</if>
+            <if test="isDeleted!=null">
+				is_deleted,
+			</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+				#{id},
+			</if>
+            <if test="serial!=null">
+				#{serial},
+			</if>
+            <if test="currentBatchCount!=null">
+				#{currentBatchCount},
+			</if>
+            <if test="status!=null">
+				#{status},
+			</if>
+            <if test="cdDeployAppRecordId!=null">
+				#{cdDeployAppRecordId},
+			</if>
+            <if test="createUser!=null and ''!=createUser">
+				#{createUser},
+			</if>
+            <if test="updateUser!=null and ''!=updateUser">
+				#{updateUser},
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				#{createTime},
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				#{updateTime},
+			</if>
+            <if test="version!=null">
+				#{version},
+			</if>
+            <if test="isDeleted!=null">
+				#{isDeleted},
+			</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="CdDeployAppStrategyDO">
+        UPDATE cd_deploy_app_strategy
+        <set>
+            <if test="serial!=null">
+				`serial` = #{serial},
+			</if>
+            <if test="currentBatchCount!=null">
+				current_batch_count = #{currentBatchCount},
+			</if>
+            <if test="status!=null">
+				`status` = #{status},
+			</if>
+            <if test="cdDeployAppRecordId!=null">
+				cd_deploy_app_record_id = #{cdDeployAppRecordId},
+			</if>
+            <if test="createUser!=null and ''!=createUser">
+				create_user = #{createUser},
+			</if>
+            <if test="updateUser!=null and ''!=updateUser">
+				update_user = #{updateUser},
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				create_time = #{createTime},
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				update_time = #{updateTime},
+			</if>
+            <if test="version!=null">
+				version = #{version},
+			</if>
+            <if test="isDeleted!=null">
+				is_deleted = #{isDeleted},
+			</if>
+        </set>
+        <include refid="_primaryKey_condition"/>
+    </update>
+
+    <select id="get" resultMap="cdDeployAppStrategyMapper" parameterType="CdDeployAppStrategyDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM cd_deploy_app_strategy
+        <include refid="_primaryKey_condition"/>
+    </select>
+
+    <select id="list" resultMap="cdDeployAppStrategyMapper" parameterType="CdDeployAppStrategyDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM cd_deploy_app_strategy
+        <include refid="_condition"/>
+	    <include refid="_order"/>
+    </select>
+
+    <select id="listByPage" resultMap="cdDeployAppStrategyMapper" parameterType="CdDeployAppStrategyDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM cd_deploy_app_strategy
+        <include refid="_condition"/>
+        <include refid="_order"/>
+        <if test="startRecord != null and pageSize != null and pageSize >0">
+            limit #{startRecord},#{pageSize}
+        </if>
+	    <if test="!(startRecord != null and pageSize != null and pageSize >0)">
+		    limit 0,15
+	    </if>
+    </select>
+
+    <select id="count" resultType="java.lang.Integer" parameterType="CdDeployAppStrategyDO">
+        SELECT
+        COUNT(*)
+        FROM cd_deploy_app_strategy
+        <include refid="_condition"/>
+    </select>
+
+    <delete id="delete" parameterType="CdDeployAppStrategyDO">
+        DELETE FROM cd_deploy_app_strategy
+        <include refid="_primaryKey_condition"/>
+    </delete>
+
+</mapper>

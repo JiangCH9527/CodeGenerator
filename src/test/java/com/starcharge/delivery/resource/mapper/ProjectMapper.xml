@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.starcharge.delivery.mapper.ProjectMapper">
+
+	<resultMap id="projectMapper" type="ProjectDO">
+        <result property="id" column="id"/>
+        <result property="projectCode" column="project_code"/>
+        <result property="repositoryId" column="repository_id"/>
+        <result property="repositoryUrl" column="repository_url"/>
+        <result property="departmentCode" column="department_code"/>
+        <result property="departmentName" column="department_name"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="language" column="language"/>
+        <result property="type" column="type"/>
+        <result property="framework" column="framework"/>
+        <result property="init" column="init"/>
+        <result property="accessType" column="access_type"/>
+        <result property="operator" column="operator"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="version" column="version"/>
+        <result property="isDeleted" column="is_deleted"/>
+	</resultMap>
+
+
+	<sql id="_fields">
+		id,project_code,repository_id,repository_url,department_code,department_name,`name`,description,`language`,`type`,framework,init,access_type,operator,create_time,update_time,version,is_deleted
+	</sql>
+
+	<sql id="_condition">
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="id!=null">
+				AND id = #{id}
+			</if>
+            <if test="projectCode!=null and ''!=projectCode">
+				AND project_code = #{projectCode}
+			</if>
+            <if test="repositoryId!=null">
+				AND repository_id = #{repositoryId}
+			</if>
+            <if test="repositoryUrl!=null and ''!=repositoryUrl">
+				AND repository_url = #{repositoryUrl}
+			</if>
+            <if test="departmentCode!=null and ''!=departmentCode">
+				AND department_code = #{departmentCode}
+			</if>
+            <if test="departmentName!=null and ''!=departmentName">
+				AND department_name = #{departmentName}
+			</if>
+            <if test="name!=null and ''!=name">
+				AND `name` = #{name}
+			</if>
+            <if test="description!=null and ''!=description">
+				AND description = #{description}
+			</if>
+            <if test="language!=null">
+				AND `language` = #{language}
+			</if>
+            <if test="type!=null">
+				AND `type` = #{type}
+			</if>
+            <if test="framework!=null">
+				AND framework = #{framework}
+			</if>
+            <if test="init!=null">
+				AND init = #{init}
+			</if>
+            <if test="accessType!=null">
+				AND access_type = #{accessType}
+			</if>
+            <if test="operator!=null and ''!=operator">
+				AND operator = #{operator}
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				<![CDATA[AND create_time >= #{dynamicFields_startTime}]]>
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				<![CDATA[AND create_time < #{dynamicFields_endTime}]]>
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				<![CDATA[AND update_time >= #{dynamicFields_startTime}]]>
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				<![CDATA[AND update_time < #{dynamicFields_endTime}]]>
+			</if>
+            <if test="version!=null">
+				AND version = #{version}
+			</if>
+            <if test="isDeleted!=null">
+				AND is_deleted = #{isDeleted}
+			</if>
+		</trim>
+	</sql>
+
+	<sql id="_primaryKey_condition">
+		WHERE id = #{id}
+	</sql>
+
+	<sql id="_order">
+        <if test="sortByParams!= null and sortByParams.size()>0" >
+            ORDER BY
+            <foreach collection="sortByParams.keys" index="index" item="sortByParamKey" separator=",">
+                <![CDATA[${sortByParamKey} ${sortByParams[sortByParamKey]}]]>
+            </foreach>
+        </if>
+	</sql>
+
+    <insert id="add" parameterType="ProjectDO" keyProperty="id">
+        INSERT INTO project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+				id,
+			</if>
+            <if test="projectCode!=null and ''!=projectCode">
+				project_code,
+			</if>
+            <if test="repositoryId!=null">
+				repository_id,
+			</if>
+            <if test="repositoryUrl!=null and ''!=repositoryUrl">
+				repository_url,
+			</if>
+            <if test="departmentCode!=null and ''!=departmentCode">
+				department_code,
+			</if>
+            <if test="departmentName!=null and ''!=departmentName">
+				department_name,
+			</if>
+            <if test="name!=null and ''!=name">
+				`name`,
+			</if>
+            <if test="description!=null and ''!=description">
+				description,
+			</if>
+            <if test="language!=null">
+				`language`,
+			</if>
+            <if test="type!=null">
+				`type`,
+			</if>
+            <if test="framework!=null">
+				framework,
+			</if>
+            <if test="init!=null">
+				init,
+			</if>
+            <if test="accessType!=null">
+				access_type,
+			</if>
+            <if test="operator!=null and ''!=operator">
+				operator,
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				create_time,
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				update_time,
+			</if>
+            <if test="version!=null">
+				version,
+			</if>
+            <if test="isDeleted!=null">
+				is_deleted,
+			</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+				#{id},
+			</if>
+            <if test="projectCode!=null and ''!=projectCode">
+				#{projectCode},
+			</if>
+            <if test="repositoryId!=null">
+				#{repositoryId},
+			</if>
+            <if test="repositoryUrl!=null and ''!=repositoryUrl">
+				#{repositoryUrl},
+			</if>
+            <if test="departmentCode!=null and ''!=departmentCode">
+				#{departmentCode},
+			</if>
+            <if test="departmentName!=null and ''!=departmentName">
+				#{departmentName},
+			</if>
+            <if test="name!=null and ''!=name">
+				#{name},
+			</if>
+            <if test="description!=null and ''!=description">
+				#{description},
+			</if>
+            <if test="language!=null">
+				#{language},
+			</if>
+            <if test="type!=null">
+				#{type},
+			</if>
+            <if test="framework!=null">
+				#{framework},
+			</if>
+            <if test="init!=null">
+				#{init},
+			</if>
+            <if test="accessType!=null">
+				#{accessType},
+			</if>
+            <if test="operator!=null and ''!=operator">
+				#{operator},
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				#{createTime},
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				#{updateTime},
+			</if>
+            <if test="version!=null">
+				#{version},
+			</if>
+            <if test="isDeleted!=null">
+				#{isDeleted},
+			</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="ProjectDO">
+        UPDATE project
+        <set>
+            <if test="projectCode!=null and ''!=projectCode">
+				project_code = #{projectCode},
+			</if>
+            <if test="repositoryId!=null">
+				repository_id = #{repositoryId},
+			</if>
+            <if test="repositoryUrl!=null and ''!=repositoryUrl">
+				repository_url = #{repositoryUrl},
+			</if>
+            <if test="departmentCode!=null and ''!=departmentCode">
+				department_code = #{departmentCode},
+			</if>
+            <if test="departmentName!=null and ''!=departmentName">
+				department_name = #{departmentName},
+			</if>
+            <if test="name!=null and ''!=name">
+				`name` = #{name},
+			</if>
+            <if test="description!=null and ''!=description">
+				description = #{description},
+			</if>
+            <if test="language!=null">
+				`language` = #{language},
+			</if>
+            <if test="type!=null">
+				`type` = #{type},
+			</if>
+            <if test="framework!=null">
+				framework = #{framework},
+			</if>
+            <if test="init!=null">
+				init = #{init},
+			</if>
+            <if test="accessType!=null">
+				access_type = #{accessType},
+			</if>
+            <if test="operator!=null and ''!=operator">
+				operator = #{operator},
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				create_time = #{createTime},
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				update_time = #{updateTime},
+			</if>
+            <if test="version!=null">
+				version = #{version},
+			</if>
+            <if test="isDeleted!=null">
+				is_deleted = #{isDeleted},
+			</if>
+        </set>
+        <include refid="_primaryKey_condition"/>
+    </update>
+
+    <select id="get" resultMap="projectMapper" parameterType="ProjectDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM project
+        <include refid="_primaryKey_condition"/>
+    </select>
+
+    <select id="list" resultMap="projectMapper" parameterType="ProjectDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM project
+        <include refid="_condition"/>
+	    <include refid="_order"/>
+    </select>
+
+    <select id="listByPage" resultMap="projectMapper" parameterType="ProjectDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM project
+        <include refid="_condition"/>
+        <include refid="_order"/>
+        <if test="startRecord != null and pageSize != null and pageSize >0">
+            limit #{startRecord},#{pageSize}
+        </if>
+	    <if test="!(startRecord != null and pageSize != null and pageSize >0)">
+		    limit 0,15
+	    </if>
+    </select>
+
+    <select id="count" resultType="java.lang.Integer" parameterType="ProjectDO">
+        SELECT
+        COUNT(*)
+        FROM project
+        <include refid="_condition"/>
+    </select>
+
+    <delete id="delete" parameterType="ProjectDO">
+        DELETE FROM project
+        <include refid="_primaryKey_condition"/>
+    </delete>
+
+</mapper>

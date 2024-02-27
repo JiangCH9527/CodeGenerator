@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.starcharge.delivery.mapper.ResourceMapper">
+
+	<resultMap id="resourceMapper" type="ResourceDO">
+        <result property="id" column="id"/>
+        <result property="projectId" column="project_id"/>
+        <result property="applicationId" column="application_id"/>
+        <result property="titanResourceId" column="titan_resource_id"/>
+        <result property="profile" column="profile"/>
+        <result property="subProfile" column="sub_profile"/>
+        <result property="clusterInfoId" column="cluster_info_id"/>
+        <result property="resourceApply" column="resource_apply"/>
+        <result property="resourceUsed" column="resource_used"/>
+        <result property="realmName" column="realm_name"/>
+        <result property="nginxInfoId" column="nginx_info_id"/>
+        <result property="internalRealmName" column="internal_realm_name"/>
+        <result property="internalNginxInfoId" column="internal_nginx_info_id"/>
+        <result property="deployParam" column="deploy_param"/>
+        <result property="hpaEnabled" column="hpa_enabled"/>
+        <result property="hpaMinReplicas" column="hpa_min_replicas"/>
+        <result property="hpaMaxReplicas" column="hpa_max_replicas"/>
+        <result property="cpuTargetUtilization" column="cpu_target_utilization"/>
+        <result property="memTargetUtilization" column="mem_target_utilization"/>
+        <result property="schedulerEnabled" column="scheduler_enabled"/>
+        <result property="status" column="status"/>
+        <result property="applyUserId" column="apply_user_id"/>
+        <result property="applyUserName" column="apply_user_name"/>
+        <result property="applyUserCode" column="apply_user_code"/>
+        <result property="consulInfoId" column="consul_info_id"/>
+        <result property="timezone" column="timezone"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="version" column="version"/>
+        <result property="isDeleted" column="is_deleted"/>
+	</resultMap>
+
+
+	<sql id="_fields">
+		id,project_id,application_id,titan_resource_id,`profile`,sub_profile,cluster_info_id,resource_apply,resource_used,realm_name,nginx_info_id,internal_realm_name,internal_nginx_info_id,deploy_param,hpa_enabled,hpa_min_replicas,hpa_max_replicas,cpu_target_utilization,mem_target_utilization,scheduler_enabled,`status`,apply_user_id,apply_user_name,apply_user_code,consul_info_id,timezone,create_time,update_time,version,is_deleted
+	</sql>
+
+	<sql id="_condition">
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="id!=null">
+				AND id = #{id}
+			</if>
+            <if test="projectId!=null">
+				AND project_id = #{projectId}
+			</if>
+            <if test="applicationId!=null">
+				AND application_id = #{applicationId}
+			</if>
+            <if test="titanResourceId!=null">
+				AND titan_resource_id = #{titanResourceId}
+			</if>
+            <if test="profile!=null">
+				AND `profile` = #{profile}
+			</if>
+            <if test="subProfile!=null and ''!=subProfile">
+				AND sub_profile = #{subProfile}
+			</if>
+            <if test="clusterInfoId!=null">
+				AND cluster_info_id = #{clusterInfoId}
+			</if>
+            <if test="resourceApply!=null and ''!=resourceApply">
+				AND resource_apply = #{resourceApply}
+			</if>
+            <if test="resourceUsed!=null and ''!=resourceUsed">
+				AND resource_used = #{resourceUsed}
+			</if>
+            <if test="realmName!=null and ''!=realmName">
+				AND realm_name = #{realmName}
+			</if>
+            <if test="nginxInfoId!=null">
+				AND nginx_info_id = #{nginxInfoId}
+			</if>
+            <if test="internalRealmName!=null and ''!=internalRealmName">
+				AND internal_realm_name = #{internalRealmName}
+			</if>
+            <if test="internalNginxInfoId!=null">
+				AND internal_nginx_info_id = #{internalNginxInfoId}
+			</if>
+            <if test="deployParam!=null and ''!=deployParam">
+				AND deploy_param = #{deployParam}
+			</if>
+            <if test="hpaEnabled!=null">
+				AND hpa_enabled = #{hpaEnabled}
+			</if>
+            <if test="hpaMinReplicas!=null">
+				AND hpa_min_replicas = #{hpaMinReplicas}
+			</if>
+            <if test="hpaMaxReplicas!=null">
+				AND hpa_max_replicas = #{hpaMaxReplicas}
+			</if>
+            <if test="cpuTargetUtilization!=null">
+				AND cpu_target_utilization = #{cpuTargetUtilization}
+			</if>
+            <if test="memTargetUtilization!=null">
+				AND mem_target_utilization = #{memTargetUtilization}
+			</if>
+            <if test="schedulerEnabled!=null">
+				AND scheduler_enabled = #{schedulerEnabled}
+			</if>
+            <if test="status!=null">
+				AND `status` = #{status}
+			</if>
+            <if test="applyUserId!=null">
+				AND apply_user_id = #{applyUserId}
+			</if>
+            <if test="applyUserName!=null and ''!=applyUserName">
+				AND apply_user_name = #{applyUserName}
+			</if>
+            <if test="applyUserCode!=null and ''!=applyUserCode">
+				AND apply_user_code = #{applyUserCode}
+			</if>
+            <if test="consulInfoId!=null">
+				AND consul_info_id = #{consulInfoId}
+			</if>
+            <if test="timezone!=null and ''!=timezone">
+				AND timezone = #{timezone}
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				<![CDATA[AND create_time >= #{dynamicFields_startTime}]]>
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				<![CDATA[AND create_time < #{dynamicFields_endTime}]]>
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				<![CDATA[AND update_time >= #{dynamicFields_startTime}]]>
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				<![CDATA[AND update_time < #{dynamicFields_endTime}]]>
+			</if>
+            <if test="version!=null">
+				AND version = #{version}
+			</if>
+            <if test="isDeleted!=null">
+				AND is_deleted = #{isDeleted}
+			</if>
+		</trim>
+	</sql>
+
+	<sql id="_primaryKey_condition">
+		WHERE id = #{id}
+	</sql>
+
+	<sql id="_order">
+        <if test="sortByParams!= null and sortByParams.size()>0" >
+            ORDER BY
+            <foreach collection="sortByParams.keys" index="index" item="sortByParamKey" separator=",">
+                <![CDATA[${sortByParamKey} ${sortByParams[sortByParamKey]}]]>
+            </foreach>
+        </if>
+	</sql>
+
+    <insert id="add" parameterType="ResourceDO" keyProperty="id">
+        INSERT INTO resource
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+				id,
+			</if>
+            <if test="projectId!=null">
+				project_id,
+			</if>
+            <if test="applicationId!=null">
+				application_id,
+			</if>
+            <if test="titanResourceId!=null">
+				titan_resource_id,
+			</if>
+            <if test="profile!=null">
+				`profile`,
+			</if>
+            <if test="subProfile!=null and ''!=subProfile">
+				sub_profile,
+			</if>
+            <if test="clusterInfoId!=null">
+				cluster_info_id,
+			</if>
+            <if test="resourceApply!=null and ''!=resourceApply">
+				resource_apply,
+			</if>
+            <if test="resourceUsed!=null and ''!=resourceUsed">
+				resource_used,
+			</if>
+            <if test="realmName!=null and ''!=realmName">
+				realm_name,
+			</if>
+            <if test="nginxInfoId!=null">
+				nginx_info_id,
+			</if>
+            <if test="internalRealmName!=null and ''!=internalRealmName">
+				internal_realm_name,
+			</if>
+            <if test="internalNginxInfoId!=null">
+				internal_nginx_info_id,
+			</if>
+            <if test="deployParam!=null and ''!=deployParam">
+				deploy_param,
+			</if>
+            <if test="hpaEnabled!=null">
+				hpa_enabled,
+			</if>
+            <if test="hpaMinReplicas!=null">
+				hpa_min_replicas,
+			</if>
+            <if test="hpaMaxReplicas!=null">
+				hpa_max_replicas,
+			</if>
+            <if test="cpuTargetUtilization!=null">
+				cpu_target_utilization,
+			</if>
+            <if test="memTargetUtilization!=null">
+				mem_target_utilization,
+			</if>
+            <if test="schedulerEnabled!=null">
+				scheduler_enabled,
+			</if>
+            <if test="status!=null">
+				`status`,
+			</if>
+            <if test="applyUserId!=null">
+				apply_user_id,
+			</if>
+            <if test="applyUserName!=null and ''!=applyUserName">
+				apply_user_name,
+			</if>
+            <if test="applyUserCode!=null and ''!=applyUserCode">
+				apply_user_code,
+			</if>
+            <if test="consulInfoId!=null">
+				consul_info_id,
+			</if>
+            <if test="timezone!=null and ''!=timezone">
+				timezone,
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				create_time,
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				update_time,
+			</if>
+            <if test="version!=null">
+				version,
+			</if>
+            <if test="isDeleted!=null">
+				is_deleted,
+			</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+				#{id},
+			</if>
+            <if test="projectId!=null">
+				#{projectId},
+			</if>
+            <if test="applicationId!=null">
+				#{applicationId},
+			</if>
+            <if test="titanResourceId!=null">
+				#{titanResourceId},
+			</if>
+            <if test="profile!=null">
+				#{profile},
+			</if>
+            <if test="subProfile!=null and ''!=subProfile">
+				#{subProfile},
+			</if>
+            <if test="clusterInfoId!=null">
+				#{clusterInfoId},
+			</if>
+            <if test="resourceApply!=null and ''!=resourceApply">
+				#{resourceApply},
+			</if>
+            <if test="resourceUsed!=null and ''!=resourceUsed">
+				#{resourceUsed},
+			</if>
+            <if test="realmName!=null and ''!=realmName">
+				#{realmName},
+			</if>
+            <if test="nginxInfoId!=null">
+				#{nginxInfoId},
+			</if>
+            <if test="internalRealmName!=null and ''!=internalRealmName">
+				#{internalRealmName},
+			</if>
+            <if test="internalNginxInfoId!=null">
+				#{internalNginxInfoId},
+			</if>
+            <if test="deployParam!=null and ''!=deployParam">
+				#{deployParam},
+			</if>
+            <if test="hpaEnabled!=null">
+				#{hpaEnabled},
+			</if>
+            <if test="hpaMinReplicas!=null">
+				#{hpaMinReplicas},
+			</if>
+            <if test="hpaMaxReplicas!=null">
+				#{hpaMaxReplicas},
+			</if>
+            <if test="cpuTargetUtilization!=null">
+				#{cpuTargetUtilization},
+			</if>
+            <if test="memTargetUtilization!=null">
+				#{memTargetUtilization},
+			</if>
+            <if test="schedulerEnabled!=null">
+				#{schedulerEnabled},
+			</if>
+            <if test="status!=null">
+				#{status},
+			</if>
+            <if test="applyUserId!=null">
+				#{applyUserId},
+			</if>
+            <if test="applyUserName!=null and ''!=applyUserName">
+				#{applyUserName},
+			</if>
+            <if test="applyUserCode!=null and ''!=applyUserCode">
+				#{applyUserCode},
+			</if>
+            <if test="consulInfoId!=null">
+				#{consulInfoId},
+			</if>
+            <if test="timezone!=null and ''!=timezone">
+				#{timezone},
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				#{createTime},
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				#{updateTime},
+			</if>
+            <if test="version!=null">
+				#{version},
+			</if>
+            <if test="isDeleted!=null">
+				#{isDeleted},
+			</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="ResourceDO">
+        UPDATE resource
+        <set>
+            <if test="projectId!=null">
+				project_id = #{projectId},
+			</if>
+            <if test="applicationId!=null">
+				application_id = #{applicationId},
+			</if>
+            <if test="titanResourceId!=null">
+				titan_resource_id = #{titanResourceId},
+			</if>
+            <if test="profile!=null">
+				`profile` = #{profile},
+			</if>
+            <if test="subProfile!=null and ''!=subProfile">
+				sub_profile = #{subProfile},
+			</if>
+            <if test="clusterInfoId!=null">
+				cluster_info_id = #{clusterInfoId},
+			</if>
+            <if test="resourceApply!=null and ''!=resourceApply">
+				resource_apply = #{resourceApply},
+			</if>
+            <if test="resourceUsed!=null and ''!=resourceUsed">
+				resource_used = #{resourceUsed},
+			</if>
+            <if test="realmName!=null and ''!=realmName">
+				realm_name = #{realmName},
+			</if>
+            <if test="nginxInfoId!=null">
+				nginx_info_id = #{nginxInfoId},
+			</if>
+            <if test="internalRealmName!=null and ''!=internalRealmName">
+				internal_realm_name = #{internalRealmName},
+			</if>
+            <if test="internalNginxInfoId!=null">
+				internal_nginx_info_id = #{internalNginxInfoId},
+			</if>
+            <if test="deployParam!=null and ''!=deployParam">
+				deploy_param = #{deployParam},
+			</if>
+            <if test="hpaEnabled!=null">
+				hpa_enabled = #{hpaEnabled},
+			</if>
+            <if test="hpaMinReplicas!=null">
+				hpa_min_replicas = #{hpaMinReplicas},
+			</if>
+            <if test="hpaMaxReplicas!=null">
+				hpa_max_replicas = #{hpaMaxReplicas},
+			</if>
+            <if test="cpuTargetUtilization!=null">
+				cpu_target_utilization = #{cpuTargetUtilization},
+			</if>
+            <if test="memTargetUtilization!=null">
+				mem_target_utilization = #{memTargetUtilization},
+			</if>
+            <if test="schedulerEnabled!=null">
+				scheduler_enabled = #{schedulerEnabled},
+			</if>
+            <if test="status!=null">
+				`status` = #{status},
+			</if>
+            <if test="applyUserId!=null">
+				apply_user_id = #{applyUserId},
+			</if>
+            <if test="applyUserName!=null and ''!=applyUserName">
+				apply_user_name = #{applyUserName},
+			</if>
+            <if test="applyUserCode!=null and ''!=applyUserCode">
+				apply_user_code = #{applyUserCode},
+			</if>
+            <if test="consulInfoId!=null">
+				consul_info_id = #{consulInfoId},
+			</if>
+            <if test="timezone!=null and ''!=timezone">
+				timezone = #{timezone},
+			</if>
+            <if test="createTime!=null and ''!=createTime">
+				create_time = #{createTime},
+			</if>
+            <if test="updateTime!=null and ''!=updateTime">
+				update_time = #{updateTime},
+			</if>
+            <if test="version!=null">
+				version = #{version},
+			</if>
+            <if test="isDeleted!=null">
+				is_deleted = #{isDeleted},
+			</if>
+        </set>
+        <include refid="_primaryKey_condition"/>
+    </update>
+
+    <select id="get" resultMap="resourceMapper" parameterType="ResourceDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM resource
+        <include refid="_primaryKey_condition"/>
+    </select>
+
+    <select id="list" resultMap="resourceMapper" parameterType="ResourceDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM resource
+        <include refid="_condition"/>
+	    <include refid="_order"/>
+    </select>
+
+    <select id="listByPage" resultMap="resourceMapper" parameterType="ResourceDO">
+        SELECT
+        <include refid="_fields"/>
+        FROM resource
+        <include refid="_condition"/>
+        <include refid="_order"/>
+        <if test="startRecord != null and pageSize != null and pageSize >0">
+            limit #{startRecord},#{pageSize}
+        </if>
+	    <if test="!(startRecord != null and pageSize != null and pageSize >0)">
+		    limit 0,15
+	    </if>
+    </select>
+
+    <select id="count" resultType="java.lang.Integer" parameterType="ResourceDO">
+        SELECT
+        COUNT(*)
+        FROM resource
+        <include refid="_condition"/>
+    </select>
+
+    <delete id="delete" parameterType="ResourceDO">
+        DELETE FROM resource
+        <include refid="_primaryKey_condition"/>
+    </delete>
+
+</mapper>
