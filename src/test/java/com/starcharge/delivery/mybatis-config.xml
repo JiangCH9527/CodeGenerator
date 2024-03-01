@@ -8,11 +8,7 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="com.starcharge.delivery.domain.ApplicationDO" alias="ApplicationDO"/>
-		<typeAlias type="com.starcharge.delivery.domain.ClusterInfoDO" alias="ClusterInfoDO"/>
-		<typeAlias type="com.starcharge.delivery.domain.ConsulInfoDO" alias="ConsulInfoDO"/>
-		<typeAlias type="com.starcharge.delivery.domain.ProjectDO" alias="ProjectDO"/>
-		<typeAlias type="com.starcharge.delivery.domain.ResourceDO" alias="ResourceDO"/>
+		<typeAlias type="com.starcharge.delivery.domain.CdArgoClusterRelationDO" alias="CdArgoClusterRelationDO"/>
 	</typeAliases>
 
 	<!--分页插件-->
@@ -30,11 +26,7 @@
 	</plugins>
 
 	<mappers>
-		<mapper resource="com/starcharge/delivery/resource/mapper/ApplicationMapper.xml"/>
-		<mapper resource="com/starcharge/delivery/resource/mapper/ClusterInfoMapper.xml"/>
-		<mapper resource="com/starcharge/delivery/resource/mapper/ConsulInfoMapper.xml"/>
-		<mapper resource="com/starcharge/delivery/resource/mapper/ProjectMapper.xml"/>
-		<mapper resource="com/starcharge/delivery/resource/mapper/ResourceMapper.xml"/>
+		<mapper resource="com/starcharge/delivery/resource/mapper/CdArgoClusterRelationMapper.xml"/>
 	</mappers>
 
 </configuration>

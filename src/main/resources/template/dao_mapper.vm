@@ -17,7 +17,7 @@ public interface ${upClassName}Mapper {
 
     List<${upClassName}${domainSuffix}> list(${upClassName}${domainSuffix} ${lowClassName});
 
-    List<${upClassName}${domainSuffix}> listByPage(${upClassName}${domainSuffix} ${lowClassName});
+##    List<${upClassName}${domainSuffix}> listByPage(${upClassName}${domainSuffix} ${lowClassName});
 
     Integer count(${upClassName}${domainSuffix} ${lowClassName});
 

@@ -44,16 +44,16 @@ public class MapperGeneratorImpl extends BaseGeneratorImpl {
             resultMapColumns.add(columnBf.toString());
 
             if (columnNameTypeMap.get(col).equals("Date")) {
-                StringBuilder conditionBfs = new StringBuilder();
-                conditionBfs.append("<if test=\"").append(field).append("!=null and ''!=").append(field).append("\">").append(LINE)
-                        .append("\t\t\t\t<![CDATA[").append("AND ").append(MysqlKeywordUtil.getFieldName(col)).append(" >= #{").append("dynamicFields_startTime").append("}").append("]]>").append(LINE)
-                        .append("\t\t\t</if>");
-                whereConditions.add(conditionBfs.toString());
-                StringBuilder conditionBfe = new StringBuilder();
-                conditionBfe.append("<if test=\"").append(field).append("!=null and ''!=").append(field).append("\">").append(LINE)
-                        .append("\t\t\t\t<![CDATA[").append("AND ").append(MysqlKeywordUtil.getFieldName(col)).append(" < #{").append("dynamicFields_endTime").append("}").append("]]>").append(LINE)
-                        .append("\t\t\t</if>");
-                whereConditions.add(conditionBfe.toString());
+//                StringBuilder conditionBfs = new StringBuilder();
+//                conditionBfs.append("<if test=\"").append(field).append("!=null and ''!=").append(field).append("\">").append(LINE)
+//                        .append("\t\t\t\t<![CDATA[").append("AND ").append(MysqlKeywordUtil.getFieldName(col)).append(" >= #{").append("dynamicFields_startTime").append("}").append("]]>").append(LINE)
+//                        .append("\t\t\t</if>");
+//                whereConditions.add(conditionBfs.toString());
+//                StringBuilder conditionBfe = new StringBuilder();
+//                conditionBfe.append("<if test=\"").append(field).append("!=null and ''!=").append(field).append("\">").append(LINE)
+//                        .append("\t\t\t\t<![CDATA[").append("AND ").append(MysqlKeywordUtil.getFieldName(col)).append(" < #{").append("dynamicFields_endTime").append("}").append("]]>").append(LINE)
+//                        .append("\t\t\t</if>");
+//                whereConditions.add(conditionBfe.toString());
             }else {
                 StringBuilder conditionBf = new StringBuilder();
                 if(MysqlDatabaseMetaTypeUtil.isNumberType(columnNameTypeMap.get(col))){ //防止数字类型值为0判断失败

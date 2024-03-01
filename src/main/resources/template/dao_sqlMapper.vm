@@ -74,19 +74,19 @@
 	    <include refid="_order"/>
     </select>
 
-    <select id="listByPage" resultMap="${lowClassName}Mapper" parameterType="${upClassName}${domainSuffix}">
-        SELECT
-        <include refid="_fields"/>
-        FROM ${tableName}
-        <include refid="_condition"/>
-        <include refid="_order"/>
-        <if test="startRecord != null and pageSize != null and pageSize >0">
-            limit #{startRecord},#{pageSize}
-        </if>
-	    <if test="!(startRecord != null and pageSize != null and pageSize >0)">
-		    limit 0,15
-	    </if>
-    </select>
+##    <select id="listByPage" resultMap="${lowClassName}Mapper" parameterType="${upClassName}${domainSuffix}">
+##        SELECT
+##        <include refid="_fields"/>
+##        FROM ${tableName}
+##        <include refid="_condition"/>
+##        <include refid="_order"/>
+##        <if test="startRecord != null and pageSize != null and pageSize >0">
+##            limit #{startRecord},#{pageSize}
+##        </if>
+##	    <if test="!(startRecord != null and pageSize != null and pageSize >0)">
+##		    limit 0,15
+##	    </if>
+##    </select>
 
     <select id="count" resultType="java.lang.Integer" parameterType="${upClassName}${domainSuffix}">
         SELECT
@@ -96,7 +96,8 @@
     </select>
 
     <delete id="delete" parameterType="java.lang.Long">
-        DELETE FROM ${tableName}
+        UPDATE ${tableName}
+        SET is_deleted = 1
         <include refid="_primaryKey_condition"/>
     </delete>
 
