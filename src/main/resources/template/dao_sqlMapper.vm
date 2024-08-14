@@ -26,14 +26,14 @@
 		WHERE ${columnPrimaryKey} = #{${normalPrimaryKey}}
 	</sql>
 
-	<sql id="_order">
-        <if test="sortByParams!= null and sortByParams.size()>0" >
-            ORDER BY
-            <foreach collection="sortByParams.keys" index="index" item="sortByParamKey" separator=",">
-                ${sortByParams}
-            </foreach>
-        </if>
-	</sql>
+##	<sql id="_order">
+##        <if test="sortByParams!= null and sortByParams.size()>0" >
+##            ORDER BY
+##            <foreach collection="sortByParams.keys" index="index" item="sortByParamKey" separator=",">
+##                ${sortByParams}
+##            </foreach>
+##        </if>
+##	</sql>
 
     <insert id="insert" parameterType="${upClassName}${domainSuffix}" keyProperty="${normalPrimaryKey}" keyColumn="${normalPrimaryKey}" useGeneratedKeys="true">
         INSERT INTO ${tableName}
@@ -71,7 +71,7 @@
         <include refid="_fields"/>
         FROM ${tableName}
         <include refid="_condition"/>
-	    <include refid="_order"/>
+##	    <include refid="_order"/>
     </select>
 
 ##    <select id="listByPage" resultMap="${lowClassName}Mapper" parameterType="${upClassName}${domainSuffix}">

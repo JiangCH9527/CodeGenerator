@@ -9,7 +9,7 @@
             <set>
                 <bean class="com.weidong.mybatis.config.PackageConfigType">
                     <property name="aliasType" value="poPackage"/><!--不可变更-->
-                    <property name="targetDir" value="/domain"/>
+                    <property name="targetDir" value="/domain/po"/>
                     <property name="fileNameSuffix" value="{domainSuffix}.java"/>
                     <property name="template" value="domain_dto.vm"/><!--不可变更-->
                 </bean>
